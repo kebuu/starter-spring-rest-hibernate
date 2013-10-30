@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="classpath:spring/db-context.xml"/>
+	<import resource="classpath:spring/cache-context.xml"/>
+	<import resource="classpath:spring/hibernate-context.xml"/>
+
+	<!-- CONFIG -->
+	<bean id="appConfig" class="com.cta.config.impl.AppConfigImpl">
+		<property name="debugModeActive" value="${debug.mode.active}" />
+		<property name="dateConverterFormats" value="#{'${search.date.formats}'.split(',')}" />
+		<property name="crossDomainAllowedHeaders" value="${cross.domain.allowed.headers:content-type, accept, x-requested-with, origin}" />
+		<property name="crossDomainAllowedMethods" value="${cross.domain.allowed.methods:GET, POST, PUT, DELETE, OPTIONS}" />
+		<property name="crossDomainAllowedOrigins" value="${cross.domain.allowed.origins:*}" />
+		<property name="crossDomainMaxAge" value="${cross.domain.max.age:1800}" />
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="fallbackToSystemLocale" value="false" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="useCodeAsDefaultMessage" value="true" />
+		<property name="basenames">
+			<list>
+				<value>i18n/exceptions</value>
+				<value>i18n/messages</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- I18N -->
+	<bean id="localeService" class="com.cta.i18n.DefaultLocaleService" />
+	<bean id="messageSourceManager" class="com.cta.i18n.MessageSourceManager">
+		<property name="messageSource" ref="messageSource" />
+		<property name="localeService" ref="localeService" />
+	</bean>
+
+	<!-- SERVICE -->
+	
+	<!-- DAO -->
+	<bean id="dao" abstract="true">
+		<property name="sessionFactory" ref="hibernateSessionFactory"/>
+	</bean>
+
+	<!-- MISC -->
+	<bean id="dateConveter" class="com.cta.converter.CustomDateConverter">
+		<property name="appConfig" ref="appConfig" />
+	</bean>
+	
+	<bean id="beanPropertyConverter" class="com.cta.converter.CustomBeanConverter">
+		<property name="customConverters">
+			<map>
+				<entry key="java.util.Date" value-ref="dateConveter" />
+			</map>
+		</property>
+	</bean>
+	
+</beans>
