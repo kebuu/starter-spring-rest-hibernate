@@ -1,4 +1,4 @@
-package com.cta.service.threadlocal;
+package com.cta.misc.threadlocal;
 
 public interface ThreadLocalService<T> {
 	

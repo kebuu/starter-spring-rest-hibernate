@@ -10,7 +10,7 @@
 	
 	<import resource="classpath:spring/app-context.xml"/>
 	
-	<bean id="sampleDataDatabaseManager" class="com.cta.db.SampleDataDatabaseManager">
+	<bean id="sampleDataDatabaseManager" class="com.cta.misc.db.SampleDataDatabaseManager">
 		<property name="loadSampleData" value="${load.sample.data}" />
 		<property name="dataSource" ref="datasource" />
 	</bean>

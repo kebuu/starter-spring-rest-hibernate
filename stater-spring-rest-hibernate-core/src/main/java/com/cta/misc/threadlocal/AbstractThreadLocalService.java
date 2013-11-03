@@ -1,4 +1,4 @@
-package com.cta.service.threadlocal;
+package com.cta.misc.threadlocal;
 
 
 public abstract class AbstractThreadLocalService<T> implements ThreadLocalService<T> {

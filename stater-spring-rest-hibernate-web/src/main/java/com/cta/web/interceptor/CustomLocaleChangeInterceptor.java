@@ -10,7 +10,7 @@ import lombok.Setter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.cta.service.threadlocal.AbstractThreadLocalService;
+import com.cta.misc.threadlocal.AbstractThreadLocalService;
 
 @Setter
 public class CustomLocaleChangeInterceptor extends HandlerInterceptorAdapter {

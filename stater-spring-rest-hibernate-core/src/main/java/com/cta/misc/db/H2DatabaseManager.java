@@ -1,4 +1,4 @@
-package com.cta.db;
+package com.cta.misc.db;
 
 import java.io.IOException;
 import java.net.DatagramSocket;

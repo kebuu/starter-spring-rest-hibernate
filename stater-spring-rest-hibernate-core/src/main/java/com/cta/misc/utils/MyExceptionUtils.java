@@ -1,4 +1,4 @@
-package com.cta.utils;
+package com.cta.misc.utils;
 
 import com.cta.exception.AppException;
 
@@ -9,13 +9,11 @@ public abstract class MyExceptionUtils {
 	}
 	
 	public static void throwIfNull(Object object, AppException exception) {
-		if(object == null) {
-			throw exception;
-		}
+		throwIfTrue(object == null, exception);
 	}
 	
-	public static void throwIfFalse(boolean condition, AppException exception) {
-		if(!condition) {
+	public static void throwIfTrue(boolean condition, AppException exception) {
+		if(condition) {
 			throw exception;
 		}
 	}

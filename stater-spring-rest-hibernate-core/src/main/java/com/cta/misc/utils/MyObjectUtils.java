@@ -1,4 +1,4 @@
-package com.cta.utils;
+package com.cta.misc.utils;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
@@ -63,5 +63,9 @@ public abstract class MyObjectUtils {
      */
     public static <T> void sortByNaturalOrId(List<T> list) {
     	sortByNaturalOrId(list, false);
+    }
+    
+    public static boolean isNull(Object object) {
+    	return object == null;
     }
 }

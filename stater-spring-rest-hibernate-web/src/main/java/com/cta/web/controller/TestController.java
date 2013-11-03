@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cta.i18n.ImprovedMessageSource;
+import com.cta.misc.i18n.ImprovedMessageSource;
 
 @Controller
 @RequestMapping("/test")

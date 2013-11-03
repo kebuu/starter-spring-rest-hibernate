@@ -1,4 +1,4 @@
-package com.cta.i18n;
+package com.cta.misc.i18n;
 
 import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.NoSuchMessageException;

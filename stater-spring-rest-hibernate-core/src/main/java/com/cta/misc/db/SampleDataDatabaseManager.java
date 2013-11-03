@@ -1,4 +1,4 @@
-package com.cta.db;
+package com.cta.misc.db;
 
 import java.util.Arrays;
 import java.util.Collections;

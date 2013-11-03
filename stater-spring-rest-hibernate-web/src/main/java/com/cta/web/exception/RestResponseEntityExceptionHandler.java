@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.cta.config.AppConfig;
 import com.cta.exception.AppException;
-import com.cta.i18n.ImprovedMessageSource;
+import com.cta.misc.i18n.ImprovedMessageSource;
 
 @ControllerAdvice
 @Setter

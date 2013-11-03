@@ -1,4 +1,4 @@
-package com.cta.main;
+package com.cta.misc.main;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -7,7 +7,7 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import com.cta.utils.MyExceptionUtils;
+import com.cta.misc.utils.MyExceptionUtils;
 
 public abstract class AbstractMain {
 

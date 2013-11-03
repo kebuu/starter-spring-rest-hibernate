@@ -6,7 +6,7 @@
 
 	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="false"/>
 
-	<bean id="h2DatabaseManager" class="com.cta.db.H2DatabaseManager">
+	<bean id="h2DatabaseManager" class="com.cta.misc.db.H2DatabaseManager">
 		<property name="createH2DatabaseIfPossible" value="${start.h2.server}" />
 		<property name="url" value="${datasource.url}" />
 	</bean>

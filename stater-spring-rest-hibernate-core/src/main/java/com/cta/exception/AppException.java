@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import com.cta.i18n.MessageSourceManager;
+import com.cta.misc.i18n.MessageSourceManager;
 
 @Getter
 @Setter

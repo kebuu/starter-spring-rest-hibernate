@@ -1,4 +1,4 @@
-package com.cta.utils;
+package com.cta.misc.utils;
 
 import java.util.List;
 

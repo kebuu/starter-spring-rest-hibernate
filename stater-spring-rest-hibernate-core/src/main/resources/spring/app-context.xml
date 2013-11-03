@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<import resource="classpath:spring/db-context.xml"/>
-	<import resource="classpath:spring/cache-context.xml"/>
 	<import resource="classpath:spring/hibernate-context.xml"/>
 
+	<context:component-scan base-package="com.cta.dao" />
+	<context:component-scan base-package="com.cta.service" />
+	
 	<!-- CONFIG -->
 	<bean id="appConfig" class="com.cta.config.impl.AppConfigImpl">
 		<property name="debugModeActive" value="${debug.mode.active}" />
@@ -30,30 +33,10 @@
 	</bean>
 	
 	<!-- I18N -->
-	<bean id="localeService" class="com.cta.i18n.DefaultLocaleService" />
-	<bean id="messageSourceManager" class="com.cta.i18n.MessageSourceManager">
+	<bean id="localeService" class="com.cta.misc.i18n.service.DefaultLocaleService" />
+	<bean id="messageSourceManager" class="com.cta.misc.i18n.MessageSourceManager">
 		<property name="messageSource" ref="messageSource" />
 		<property name="localeService" ref="localeService" />
-	</bean>
-
-	<!-- SERVICE -->
-	
-	<!-- DAO -->
-	<bean id="dao" abstract="true">
-		<property name="sessionFactory" ref="hibernateSessionFactory"/>
-	</bean>
-
-	<!-- MISC -->
-	<bean id="dateConveter" class="com.cta.converter.CustomDateConverter">
-		<property name="appConfig" ref="appConfig" />
-	</bean>
-	
-	<bean id="beanPropertyConverter" class="com.cta.converter.CustomBeanConverter">
-		<property name="customConverters">
-			<map>
-				<entry key="java.util.Date" value-ref="dateConveter" />
-			</map>
-		</property>
 	</bean>
 	
 </beans>

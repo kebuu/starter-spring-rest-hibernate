@@ -1,4 +1,4 @@
-package com.cta.i18n;
+package com.cta.misc.i18n.service;
 
 import java.util.Locale;
 
