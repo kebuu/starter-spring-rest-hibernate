@@ -22,7 +22,7 @@ public abstract class Model {
 	protected Long id;
 	
 	@Version
-	protected int version; 
+	protected long version; 
 	
 	@SneakyThrows
 	public static <T extends Model> T newInstanceWithId(Class<T> clazz, Long id) {

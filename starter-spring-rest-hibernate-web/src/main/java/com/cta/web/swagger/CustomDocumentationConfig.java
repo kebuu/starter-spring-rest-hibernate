@@ -69,11 +69,6 @@ public class CustomDocumentationConfig {
     }
 
     @Bean
-    public ObjectMapper documentationObjectMapper() {
-        return new ObjectMapper();
-    }
-
-    @Bean
     public TypeResolver typeResolver() {
         return new TypeResolver();
     }

@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.cta.test.BaseSpringTest;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,6 +21,9 @@ public abstract class BaseSpringWebTest extends BaseSpringTest {
 
 	@Autowired
     protected WebApplicationContext wac;
+	
+	@Autowired
+	protected ObjectMapper objectMapper;
 
     protected MockMvc mockMvc;
 
@@ -28,7 +32,7 @@ public abstract class BaseSpringWebTest extends BaseSpringTest {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
 
-	protected String toJson(String fakeJson) {
-		return fakeJson.replaceAll("'", "\"");
+	protected String toJson(String jsonString) {
+		return jsonString.replaceAll("'", "\"");
 	}
 }

@@ -20,7 +20,7 @@ public class FakeDaoImpl extends AbstractDao implements FakeDao {
 		Criteria criteria = createQuery(Fake.class);
 		
 		if (example.isPresent()) {
-			criteria.add(Example.create(example));
+			criteria.add(Example.create(example.get()));
 		}
 		
 		return CriteriaUtils.list(criteria, Fake.class);
