@@ -7,11 +7,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<modules>
-		<module>starter-spring-rest-hibernate-core</module>
-		<module>starter-spring-rest-hibernate-web</module>
-		<module>starter-spring-rest-hibernate-standalone</module>
-		<module>starter-spring-rest-hibernate-webapp</module>
-		<module>starter-spring-rest-hibernate-test</module>
+		<module>core</module>
+		<module>web</module>
+		<module>standalone</module>
+		<module>webapp</module>
+		<module>test</module>
 	</modules>
 
 	<properties>
