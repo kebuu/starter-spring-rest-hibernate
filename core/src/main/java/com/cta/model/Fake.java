@@ -3,6 +3,7 @@ package com.cta.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import org.joda.time.DateTime;
 @Entity
 public class Fake extends Model {
 
+	@NotNull
 	private String someString;
 	private Date someDate;
 	
